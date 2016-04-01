@@ -3060,7 +3060,7 @@ include('bin/classes.js'); include('bin/funcions.js'); include('bin/tarifa6.js')
 		416,
 		444,
 		444,
-		420
+		420,
 	];
 // FI INPUTS
 
@@ -3070,3 +3070,4 @@ include('bin/classes.js'); include('bin/funcions.js'); include('bin/tarifa6.js')
 */
 
 var cost = calcula()[0]
+console.log(cost+" euros");
