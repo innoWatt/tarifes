@@ -5,12 +5,12 @@
 */
 
 //crear funcio "include"
-	var fs = require("fs");
-	function read(f){return fs.readFileSync(f).toString();}
-	function include(f){eval.apply(global,[read(f)]);}
+var fs = require("fs");
+function read(f){return fs.readFileSync(f).toString();}
+function include(f){eval.apply(global,[read(f)]);}
 
 //inclou arxius necessaris: classes.js, funcions.js i tarifa6.js
-include('bin/classes.js'); include('bin/funcions.js'); include('bin/tarifa6.js')
+include('../bin/classes.js'); include('../bin/funcions.js'); include('../bin/tarifa6.js')
 
 //Variables comunes a tots el mesos del 2012
 	// 1. tarifa
@@ -35252,8 +35252,8 @@ include('bin/classes.js'); include('bin/funcions.js'); include('bin/tarifa6.js')
 
 //factura normal
 potConP1=208; potConP2=208; potConP3=208; potConP4=208; potConP5=208; potConP6=451; 	//globals
-console.log(any())
-return
+//console.log(any())
+//return
 
 //nou objecte optimització anomenat "op"
 var op = {
@@ -35279,18 +35279,27 @@ var pot_stp = 1;
 //P6 fix
 var p6=451
 
+//mostra una capçalera
+console.log("P1  P2  P3  P4  P5  P6  COST         optim trobat")
+
 //bucles de combinacions de potències contractades (lent)
 for(var p=pot_ini; p<=pot_fin; p+=pot_stp)
 {
-	potConP1=p;potConP2=p;potConP3=p;potConP4=p;potConP5=p;potConP6=p6; //globals
-	console.log(p+" "+p+" "+p+" "+p+" "+p+" "+p6)
+	//modifica la potencia contractada
+	potConP1=p; potConP2=p; potConP3=p; potConP4=p; potConP5=p; potConP6=p6;
+
+	//Calcula el cost de tot l'any
 	var cost = any()
+
 	//si el nou cost és més petit, guarda'l dins la "op", i també les potencies 
 	if(cost < op.costOptim) 
 	{
 		op.costOptim=cost
 		op.potConP1=p; op.potConP2=p; op.potConP3=p; op.potConP4=p; op.potConP5=p; op.potConP6=p6;
 	}
+
+	//mostra per pantalla el resultat i la combinacio provada
+	console.log(p+" "+p+" "+p+" "+p+" "+p+" "+p6+" "+cost+" "+op.costOptim)
 }
 console.log(">>> OPTIMITZACIÓ FINALITZADA") 
 console.log(">>> Potències Contractades Òptimes:\t"+op.potConP1+"\t"+op.potConP2+"\t"+op.potConP3+"\t"+op.potConP4+"\t"+op.potConP5+"\t"+op.potConP6+" kW")

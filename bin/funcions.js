@@ -300,3 +300,11 @@ function aplicaTarifa(estructura)
 	//retorna l'array de costos
 	return cost;
 }
+
+/* UTILS */
+
+function round(number)
+//arrodoneix a 2 decimals
+{
+	return number.toFixed(2);
+}

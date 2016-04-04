@@ -9,7 +9,7 @@
 	function include(f){eval.apply(global,[read(f)]);}
 
 //inclou arxius necessaris: classes.js, funcions.js i tarifa6.js
-include('bin/classes.js'); include('bin/funcions.js'); include('bin/tarifa3.js')
+include('../bin/classes.js'); include('../bin/funcions.js'); include('../bin/tarifa3.js')
 
 //Variables comunes a tots el mesos del 2012
 	// 1. tarifa

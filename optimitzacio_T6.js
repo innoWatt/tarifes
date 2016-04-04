@@ -3091,9 +3091,9 @@ console.log("+------------------------------------------------------+")
 //definim potència inicial, final i step
 var pot_ini = 260;
 var pot_fin = 320;
-var pot_stp = 20;
+var pot_stp = 5;
 
-console.log("P1  P2  P3  P4  P5  P6  total+iva")
+console.log("P1  P2  P3  P4  P5  P6  total+iva  ==Optim trobat=====================")
 //comença els 6 bucles de combinacions de potències contractades (lent)
 for(var p1=pot_ini; p1<=pot_fin; p1+=pot_stp)
 	for(var p2=pot_ini; p2<=pot_fin; p2+=pot_stp)
@@ -3107,7 +3107,6 @@ for(var p1=pot_ini; p1<=pot_fin; p1+=pot_stp)
 						{
 							potConP1=p1; potConP2=p2; potConP3=p3; potConP4=p4; potConP5=p5; potConP6=p6;
 							var cost=calcula()[0]
-							console.log(p1,p2,p3,p4,p5,p6,cost)
 
 							//si el nou cost és més petit, guarda'l dins de "op" juntament amb les potències provades
 							if(cost < op.costOptim) 
@@ -3115,10 +3114,12 @@ for(var p1=pot_ini; p1<=pot_fin; p1+=pot_stp)
 								op.costOptim=cost
 								op.potConP1=p1; op.potConP2=p2; op.potConP3=p3; op.potConP4=p4; op.potConP5=p5; op.potConP6=p6;
 							}
+
+							console.log(p1,p2,p3,p4,p5,p6,round(cost),op.potConP1,op.potConP2,op.potConP3,op.potConP4,op.potConP5,op.potConP6,round(op.costOptim))
 						}
 					}
 
 //optimització feta, ara mostrem els valors optims a la pantalla
-console.log(">>> OPTIMITZACIÓ FINALITZADA") 
+console.log("\n>>> OPTIMITZACIÓ FINALITZADA") 
 console.log(">>> Potències Contractades Òptimes:\t"+op.potConP1+"\t"+op.potConP2+"\t"+op.potConP3+"\t"+op.potConP4+"\t"+op.potConP5+"\t"+op.potConP6+" kW")
 console.log(">>> Cost Total+IVA Òptim:\t\t"+op.costOptim+" euros")
