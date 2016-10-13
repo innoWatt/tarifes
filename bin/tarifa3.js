@@ -56,11 +56,11 @@ function tarifa3(input)
 				maxim[b][i]=maxim_i;
 		}
 
-		//preus €/kW
+		//preus eurkW
 		var preus = new Array(); //per p1,p2 i p3
 		preus[1]=eurKWP1; preus[2]=eurKWP2; preus[3]=eurKWP3;
 
-		//calculem el cost (€) de la potencia en cada instant
+		//calculem el cost (eur de la potencia en cada instant
 		var term_poten = new Array();
 
 		//recorrem el temps
@@ -136,11 +136,11 @@ function tarifa3(input)
 			energia[b][i] = energia[b][i-1] + poten[i] * tint;  //integral
 		}
 
-		//Ara calculem el cost (€) de l'energia consumida
+		//Ara calculem el cost (eur de l'energia consumida
 		var preus = new Array(); //per p1,p2 i p3
 		preus[1]=eurKWhP1; preus[2]=eurKWhP2; preus[3]=eurKWhP3;
 
-		//ara anem sumant dia a dia el que costa l'energia activa (€)
+		//ara anem sumant dia a dia el que costa l'energia activa (eur
 		var term_energ = new Array();
 		term_energ[0] = 0 + energia[blocs[0]][0] * preus[blocs[0]];     //valor inicial
 
@@ -214,7 +214,7 @@ function tarifa3(input)
 		}
 
 	//5. COSTOS TOTALS
-		//suma dels costos (€) energia + potència + energia reactiva
+		//suma dels costos (eur energia + potència + energia reactiva
 		var suma_termes = new Array();
 
 		for (var i=0; i<temps.length; i++)
@@ -233,25 +233,25 @@ function tarifa3(input)
 
 	//mostra per cada instant de temps el preu a pagar total
 	/*
+	*/
 	for (var i=0; i<temps.length; i++)
 	{
-		console.log(temps[i].toUTCString()+"\t\tP"+blocs[i]+"\t\t"+poten[i]+" kW\t\t"+Math.round(100*total_amb_iva[i])/100+" €");
+		console.log(temps[i].toUTCString()+"\t\tP"+blocs[i]+"\t\t"+poten[i]+" kW\t\t"+Math.round(100*total_amb_iva[i])/100+"	eur");
 	}
-	*/
 
 	var fi = temps.length-1; //index final
 
 	//RESUM
-	//console.log("\n[+] RESUM");
-	//console.log("	Potència contractada	   [kW]: "+potConP1+"		"+potConP2+"		"+potConP3);
-	//console.log("	Preus Energia	 	[€/kWh]: "+eurKWhP1+"	"+eurKWhP2+"	"+eurKWhP3);
-	//console.log("	Preus Potència	 	 [€/kW]: "+eurKWP1+"	" +eurKWP2+"	" +eurKWP3);
-	//console.log("	-------------------------------------------------------------------------------------");
-	console.log("	Màxim potència             [kW]: "+maxim[1][fi]+"		"+maxim[2][fi]+"		"+maxim[3][fi]);
-	console.log("	Term energ var		    [€]: "+term_energ[fi]);
-	//console.log("	Compl reac		    [€]: "+compl_reactiva[fi]);
-	console.log("	Term poten		    [€]: "+term_poten[fi]);
-	console.log("	TOTAL + IVA		    [€]: "+total_amb_iva[fi]+"\n");
+	console.log("\n[+] RESUM");
+	console.log("	Potència contractada  [kW]: "+potConP1+"		"+potConP2+"		"+potConP3);
+	console.log("	Preus Energia     [eurkWh]: "+eurKWhP1+"	"+eurKWhP2+"	"+eurKWhP3);
+	console.log("	Preus Potència     [eurkW]: "+eurKWP1+"	" +eurKWP2+"	" +eurKWP3);
+	console.log("	-------------------------------------------------------------------------------------");
+	console.log("	Màxim potència        [kW]: "+maxim[1][fi]+"		"+maxim[2][fi]+"		"+maxim[3][fi]);
+	console.log("	Term energ var       [eur]: "+term_energ[fi]);
+	//console.log("	Compl reac		    [eur "+compl_reactiva[fi]);
+	console.log("	Term poten           [eur]: "+term_poten[fi]);
+	console.log("	TOTAL + IVA          [eur]: "+total_amb_iva[fi]+"\n");
 
 	return total_amb_iva[fi];
 }
