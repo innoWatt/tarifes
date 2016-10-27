@@ -11,7 +11,7 @@ function tarifa3(input)
 	var blocs=input[1];
 	var poten=input[2];
 
-	//necessitem calcular "term_potencia" + "term_energia" + "compl_reactiva":
+	//calcularem 3 grans coses: "term_potencia" + "term_energia" + "compl_reactiva"
 
 	//1. TERM POTENCIA
 		//potConP{1,2,3} és la potència contractada en kW per cada bloc. Son variables globals.
@@ -229,29 +229,37 @@ function tarifa3(input)
 			total_amb_iva[i] = total_sense_iva[i] * (parseFloat(1)+parseFloat(tax_iva));
 		}
 
-	//aquí ja hauria acabat la funció. Ara mostrem per pantalla els resultats:
+	//aquí ja hem acabat
+
 
 	//mostra per cada instant de temps el preu a pagar total
 	/*
-	*/
-	for (var i=0; i<temps.length; i++)
+	for(var i=0;i<temps.length;i++)
 	{
-		console.log(temps[i].toUTCString()+"\t\tP"+blocs[i]+"\t\t"+poten[i]+" kW\t\t"+Math.round(100*total_amb_iva[i])/100+"	eur");
+		console.log(temps[i].toUTCString()+"  P"+blocs[i]+"  "+poten[i]+" kW  "+total_amb_iva[i].toFixed(2)+"  eur");
 	}
+	desactivat*/
 
 	var fi = temps.length-1; //index final
 
 	//RESUM
-	console.log("\n[+] RESUM");
-	console.log("	Potència contractada  [kW]: "+potConP1+"		"+potConP2+"		"+potConP3);
-	console.log("	Preus Energia     [eurkWh]: "+eurKWhP1+"	"+eurKWhP2+"	"+eurKWhP3);
-	console.log("	Preus Potència     [eurkW]: "+eurKWP1+"	" +eurKWP2+"	" +eurKWP3);
-	console.log("	-------------------------------------------------------------------------------------");
-	console.log("	Màxim potència        [kW]: "+maxim[1][fi]+"		"+maxim[2][fi]+"		"+maxim[3][fi]);
-	console.log("	Term energ var       [eur]: "+term_energ[fi]);
-	//console.log("	Compl reac		    [eur "+compl_reactiva[fi]);
-	console.log("	Term poten           [eur]: "+term_poten[fi]);
-	console.log("	TOTAL + IVA          [eur]: "+total_amb_iva[fi]+"\n");
+	console.log("[+] RESUM");
+	console.log("  Màxim potència        [kW]: "+maxim[1][fi]+"    "+maxim[2][fi]+"    "+maxim[3][fi]);
+	console.log("  Term poten           [eur]: "+term_poten[fi]);
+	console.log("  Term energ var       [eur]: "+term_energ[fi]);
+	console.log("  Compl reactiva       [eur]: "+compl_reactiva[fi]);
+	console.log("  TOTAL + IVA          [eur]: "+total_amb_iva[fi]+"\n");
+
+	//TODO empaquetar els resultats en un objecte de return
+	var resultat = {
+		maxP1:maxim[1][fi],
+		maxP2:maxim[2][fi],
+		maxP3:maxim[3][fi],
+		poten:term_poten[fi],
+		energ:term_energ[fi],
+		react:compl_reactiva[fi],
+		total:total_amb_iva[fi],
+	}
 
 	return total_amb_iva[fi];
 }
