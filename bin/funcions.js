@@ -96,8 +96,8 @@ function generaBlocs()
     if(nombre_de_timesteps-1 != energy.length)
     {
     	console.log("WARNING: El nombre de dades ("+energy.length+") no coincideix exactament amb el nombre de timesteps ("+(nombre_de_timesteps-1)+")");
-			while(nombre_de_timesteps-1>energy.length) energy.push(0)
-			while(nombre_de_timesteps-1<energy.length) energy.pop()
+		while(nombre_de_timesteps-1>energy.length) energy.push(0)
+		while(nombre_de_timesteps-1<energy.length) energy.pop()
     }
 
     /* CONSTRUCCIÓ DE LA VARIABLE DE RETORN */ 
