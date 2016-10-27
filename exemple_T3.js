@@ -3056,5 +3056,5 @@ include('bin/classes.js'); include('bin/funcions.js'); include('bin/tarifa3.js')
 	La funcio "calcula()" retorna el total+iva, el guardem a una nova variable que anomenem "cost"
 */
 
-var cost = calcula()[0]
+var cost = calcula()[0].total
 console.log(cost)

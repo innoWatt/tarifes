@@ -248,6 +248,7 @@ function tarifa3(input)
 	console.log("  Term poten           [eur]: "+term_poten[fi]);
 	console.log("  Term energ var       [eur]: "+term_energ[fi]);
 	console.log("  Compl reactiva       [eur]: "+compl_reactiva[fi]);
+	console.log("  Total sense IVA      [eur]: "+total_sense_iva[fi]+"\n");
 	console.log("  TOTAL + IVA          [eur]: "+total_amb_iva[fi]+"\n");
 
 	//TODO empaquetar els resultats en un objecte de return
@@ -261,5 +262,5 @@ function tarifa3(input)
 		total:total_amb_iva[fi],
 	}
 
-	return total_amb_iva[fi];
+	return resultat;
 }
