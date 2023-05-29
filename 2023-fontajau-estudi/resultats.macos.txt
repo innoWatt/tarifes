@@ -1,0 +1,34 @@
+RESULTAT OPTIMITZACIÓ
+
+Potència contractada actual:
+  P1: 250kW
+  P2: 250kW
+  P3: 250kW
+  P4: 250kW
+  P5: 250kW
+  P6: 250kW
+
+Total + IVA REAL de cada mes:
+  juliol22:    6747.51 €
+  agost22:     5125.59 €
+  setembre22: 12587.33 €
+  octubre22:  15271.13 €
+  novembre22: 15232.04 €
+  desembre22: 18801.78 €
+  gener23:    12978.18 €
+  ======================
+  *Suma*:     86743.57 €
+
+Simulacions de potències contractades:
+- Començant a 50kW fins a 300kW, fent salts de 10kW.
+- Nº de combinacions provades: 736281
+
+RESULTAT OPTIMITZACIÓ
+  P1:  130 kW
+  P2:  130 kW
+  P3:  130 kW
+  P4:  130 kW
+  P5:  130 kW
+  P6:  200 kW
+  cost_optim: 84839.63 €
+  ESTALVI:     1903.94 €
